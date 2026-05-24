@@ -8,14 +8,19 @@ public class Solution {
         // Write your code here 
         // Calculate and print the price according to the question
 
-        int costOfDozen = sc.nextInt();
-        int noOfDozens = sc.nextInt();
-        int percentageDiscount = sc.nextInt();
+        double costOfDozen = sc.nextDouble();
+        double noOfDozens = sc.nextDouble();
+        double percentageDiscount = sc.nextDouble();
 
-        int totalAmount = costOfDozen*noOfDozens;
-        int finalAmount = totalAmount * (100 - percentageDiscount) / 100;
+        double totalAmount = costOfDozen * noOfDozens;
+        double discountAmount = totalAmount * (percentageDiscount / 100.0);
+        double finalAmount = totalAmount - discountAmount;
 
-        System.out.println(finalAmount);
+        // Math.round() rounds 44.99 up to 45, and 44.11 down to 44
+        // (long) ensures it can hold large numbers without breaking
+        long roundedFinalAmount = Math.round(finalAmount);
+
+        System.out.println(roundedFinalAmount);
 
         sc.close(); 
     } 
